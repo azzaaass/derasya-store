@@ -13,7 +13,11 @@ Route::get('/', function () {
 
 Route::get('/login', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'handleLogin']);
+
 Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::get('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'handleRegister']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/homepage', [HomepageController::class, 'index']);
