@@ -21,8 +21,8 @@ class HomepageController extends Controller
 
     public function detailProduct(Barang $barang)
     {
-        $barangs = Barang::all();
-        return view('user.detailProduct', ['barangs' => $barangs]);
+        $barangs = Barang::inRandomOrder()->take(4)->get();
+        return view('user.detailProduct', ['barang' => $barang, 'barangs' => $barangs]);
     }
 
     public function about() {

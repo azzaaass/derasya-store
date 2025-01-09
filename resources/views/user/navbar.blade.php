@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ??
         'Derasya Store
-                                    ' }}</title>
+                                                    ' }}</title>
 
 
 
@@ -23,13 +23,13 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body class="bg-[#f3f3f3]">
+<body class="bg-gray-100">
     <!-- Navbar -->
     <nav class="bg-white border-gray-200">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap text-gray-900">Flowbite</span>
+                <i class="text-2xl text-gray-800 fa-solid fa-store"></i>
+                <span class="self-center text-2xl font-bold whitespace-nowrap text-gray-900">Deresya Store</span>
             </a>
             <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <button type="button"
@@ -47,6 +47,13 @@
                         <span class="block text-sm text-gray-500 truncate">{{ Auth::user()->email }}</span>
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
+                        @if (Auth::user()->role == 'admin')
+                            <li>
+                                <a href="/admin/user"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Admin
+                                    page</a>
+                            </li>
+                        @endif
                         <li>
                             <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Log
                                 out</a>
@@ -75,10 +82,6 @@
                     <li>
                         <a href="/product"
                             class="block py-2 px-3 {{ Request::is('product*') ? 'text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0' : 'text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0' }}">Product</a>
-                    </li>
-                    <li>
-                        <a href="/about"
-                            class="block py-2 px-3 {{ Request::is('about*') ? 'text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0' : 'text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0' }}">About</a>
                     </li>
                 </ul>
             </div>

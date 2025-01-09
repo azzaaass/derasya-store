@@ -19,7 +19,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/homepage', [HomepageController::class, 'index']);
     Route::get('/product', [HomepageController::class, 'product']);
     Route::get('/product/{barang}', [HomepageController::class, 'detailProduct']);
-    Route::get('/about', [HomepageController::class, 'about']);
 });
 
 Route::prefix('/admin')->group(function () {
